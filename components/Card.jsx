@@ -1,9 +1,9 @@
 import Image from 'next/image';
+import moment from 'moment';
 
 const Card = ({ post }) => {
 
-    const imageUrl = `${post.image}?lock=${post.id}`
-    const formattedCreatedAt = post.createdAt.substr(0, 10);
+    const imageUrl = `${post.image}?lock=${post.id}`;
 
     return (
         <>
@@ -20,7 +20,7 @@ const Card = ({ post }) => {
                     <div className="pr-6 py-4">
                         <span className="tracking-widest text-[10px] title-font font-medium 
                             text-gray-500 mb-1">
-                            {formattedCreatedAt}
+                            {moment(post.createdAt).format('MMM DD, YYYY')}
                         </span>
 
                         <div className="title-font text-lg font-medium text-gray-700">

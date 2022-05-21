@@ -1,6 +1,5 @@
 import Card from "./Card";
 
-
 const CardCollection = ({ posts }) => {
 
     const cardCollection = posts.map(post => {

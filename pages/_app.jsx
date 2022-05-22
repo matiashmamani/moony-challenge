@@ -1,12 +1,13 @@
-import Layout from '../components/Layout';
+import { PostProvider } from '../components/PostContext';
 import '../styles/globals.css'; 
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
+
   return (
-    <Layout>
+    <PostProvider>
       <Component {...pageProps} />
-    </Layout>
+    </PostProvider>
   );
 }
 
-export default MyApp
+export default MyApp;

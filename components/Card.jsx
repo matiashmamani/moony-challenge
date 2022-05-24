@@ -4,15 +4,13 @@ import moment from 'moment';
 
 const Card = ({ post }) => {
 
-    const imageUrl = `${post.image}?lock=${post.id}`;
-
     return (
         <>
             <div className="flex justify-center w-full my-5 mx-5 
                 md:w-2/5 xl:w-1/3 xl:mx-0">
                 <div className="max-w-md overflow-hidden border-b border-black">
                     <Image
-                        src={imageUrl}
+                        src={post.image}
                         alt={post.title}
                         width={640}
                         height={480}

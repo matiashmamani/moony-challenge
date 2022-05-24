@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import moonyLogo from '../public/images/moony-logo.png';
 
 const Header = ({ home }) => {
+
+    const router = useRouter();
 
     return (
         <header className={`sticky top-0 z-10 bg-[#4e4ed4] cursor-pointer flex flex-col justify-center  
@@ -20,7 +23,8 @@ const Header = ({ home }) => {
                 </a>
             </Link>
             {home && (
-                <button className="font-semibold text-white 
+                <button onClick={() => router.push('/add')}
+                    className="font-semibold text-white 
                     border rounded tracking-wide mx-24 mb-7 py-5
                     hover:bg-white hover:text-[#4e4ed4] hover:font-bold
                     md:mx-8 md:my-5 md:px-5 md:py-0">

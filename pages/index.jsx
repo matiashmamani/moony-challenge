@@ -24,16 +24,26 @@ const Home = ({ posts }) => {
   useEffect(() => {
 
     if(!state.posts.length){
-      // Updating posts with 'like' property
+
+      // Retrieve posts from local storage if any
+      const storedPostsInString = localStorage.getItem("storedPosts");
+      let storedPosts = [];
+  
+      if(storedPostsInString != null){
+        storedPosts = JSON.parse(storedPostsInString);
+      }
+      
+      // Updating posts with 'like' property and fixing image issue
       let updatedPosts = posts.map(post => {
         post.like = false;
+        post.image = `${post.image}?lock=${post.id}`;
         return post;
       });
 
       setState({
-        ...state,
-        posts: updatedPosts
+        posts: [...updatedPosts, ...storedPosts]
       });
+
     }
 
   }, []);

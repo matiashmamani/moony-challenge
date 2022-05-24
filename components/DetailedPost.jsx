@@ -7,10 +7,7 @@ import moment from 'moment';
 
 const DetailedPost = ({ post }) => {
 
-    const imageUrl = `${post.image}?lock=${post.id}`;
-
     const router = useRouter();
-
     const [state, setState] = useContext(PostContext);
 
     const handleLike = (id) => {
@@ -38,22 +35,23 @@ const DetailedPost = ({ post }) => {
                 <div className="max-w-md overflow-hidden mx-5 md:max-w-none
                     md:border-x-2 md:border-black md:px-5">
                     <Image
-                        src={imageUrl}
+                        src={post.image}
                         alt={post.title}
                         width={640}
                         height={480}
                     />
                     <div className="py-4">
-                        <span className="tracking-widest text-xs title-font font-medium 
-                            text-gray-500 mb-1 md:text-sm">
+                        <span className="tracking-widest text-xs title-font font-medium my-3
+                            text-gray-500 mb-1 md:text-sm md:my-4 xl:my-5">
                             {moment(post.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a")}
                         </span>
 
-                        <div className="title-font text-xl font-medium text-gray-700 md:text-2xl">
+                        <div className="title-font text-xl font-medium my-3 text-gray-700 
+                            md:text-2xl md:my-4 xl:my-5">
                             {post.title}
                         </div>
 
-                        <p className="text-gray-700 text-base md:text-lg">
+                        <p className="text-gray-700 text-base my-3 md:text-lg md:my-4 xl:my-5">
                             {post.article}
                         </p>
                     </div>
